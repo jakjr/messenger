@@ -46,22 +46,22 @@ class Messenger
 
     public function success($message)
     {
-        $this->set($message, Config::get('messenger::success-class'));
+        $this->set($message, Config::get('messenger.success-class'));
     }
 
     public function info($message)
     {
-        $this->set($message, Config::get('messenger::info-class'));
+        $this->set($message, Config::get('messenger.info-class'));
     }
 
     public function warn($message)
     {
-        $this->set($message, Config::get('messenger::warn-class'));
+        $this->set($message, Config::get('messenger.warn-class'));
     }
 
     public function error($message)
     {
-        $this->set($message, Config::get('messenger::error-class'));
+        $this->set($message, Config::get('messenger.error-class'));
     }
 
 

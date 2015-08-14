@@ -1,6 +1,6 @@
 {
   "name": "jakjr/messenger",
-  "description": "Simple package to set and flash generic messages",
+  "description": "Simple package to flash generic messages",
   "authors": [
     {
       "name": "João Alfredo Knopik Junior",
@@ -9,11 +9,11 @@
   ],
   "license": "MIT",
   "require": {
-    "php": ">=5.4.0",
-    "illuminate/support": "4.2.*"
+    "php": ">=5.5.9",
+    "illuminate/support": "^5.1"
   },
   "autoload": {
-    "psr-0": {
+    "psr-4": {
       "Jakjr\\Messenger\\": "src/"
     }
   },

@@ -18,7 +18,7 @@ class MessengerServiceProvider extends ServiceProvider {
 	 */
 	public function boot()
 	{
-		$this->package('jakjr/messenger');
+		//$this->package('jakjr/messenger'); //deprecated
 	}
 
 	/**
@@ -31,16 +31,11 @@ class MessengerServiceProvider extends ServiceProvider {
 		$this->app->bind('messenger', function(){
             return new Messenger();
         });
+
+        $this->mergeConfigFrom(
+            __DIR__ . '/config/config.php', 'messenger'
+        );
 	}
 
-	/**
-	 * Get the services provided by the provider.
-	 *
-	 * @return array
-	 */
-	public function provides()
-	{
-		return array();
-	}
 
 }

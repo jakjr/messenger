@@ -16,7 +16,7 @@ class Message {
 
     public function display()
     {
-        $wrapper = Config::get('messenger::wrapper');
+        $wrapper = Config::get('messenger.wrapper');
 
         $wrapperStatusClass = str_replace(':status-class:', $this->statusClass, $wrapper);
         $wrapperMessage = str_replace(':message:', $this->message, $wrapperStatusClass);
