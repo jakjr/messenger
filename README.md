@@ -40,7 +40,7 @@ A litle package to display messages in a View.
     @endif
 ```
 
-* Its possible overwrite some configutation:
+* Its possible overwrite some configuration:
 ```
 php artisan config:publish jakjr/messenger
 ```
