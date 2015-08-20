@@ -1,21 +1,21 @@
 # Messeger
-A litle package to display messages in a View.
+A small package to display messages in a View.
 
 * composer require jakjr/messenger
 
 * Register the ServiceProvider (config/app.php)
 ```
-'providers' => array(
+'providers' => [
     ...
-    'Jakjr\Messenger\MessengerServiceProvider',
-),
+    Jakjr\Messenger\MessengerServiceProvider::class,
+],
 ```
 
 * Register an Alias (config/app.php)
 ```
-'aliases' => array(
+'aliases' => [
     ...
-    'Messenger'         => 'Jakjr\Messenger\MessengerFacade',
+    'Messenger' => Jakjr\Messenger\MessengerFacade::class,
 ),
 ```
 
@@ -27,27 +27,21 @@ A litle package to display messages in a View.
 
 * View use:
 ```
-    @if(Messenger::has())
-        <div class="container">
-            <div class="row">
-                <div class="col-md-8 col-md-offset-2">
-                    @foreach(Messenger::get() as $message)
-                        {{$message->display()}}
-                    @endforeach
-                </div>
-            </div>
-        </div>
-    @endif
+@include('messenger::message'
 ```
 
-* Its possible overwrite some configuration:
-```
-php artisan config:publish jakjr/messenger
-```
+* You can publish the view and the config file:
+$ php artisan vendor:publish
+
+* To custom the view, make changes on file:
+resources/views/vendor/messenger/message.blade.php
+
+* To custom the configuratio, make changes on file:
+config/messenger.php
 
 * Or on runtime
 ```
-        Config::set('messenger::wrapper', "
+        Config::set('messenger.wrapper', "
             <div class='alert alert-:status-class: alert-dismissible' role='alert'>
                 <button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\"><span aria-hidden=\"true\">&times;</span></button>
                 :message:

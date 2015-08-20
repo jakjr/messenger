@@ -18,7 +18,12 @@ class MessengerServiceProvider extends ServiceProvider {
 	 */
 	public function boot()
 	{
-		//$this->package('jakjr/messenger'); //deprecated
+		$this->loadViewsFrom(__DIR__.'/views', 'messenger');
+
+        $this->publishes([
+            __DIR__.'/views' => base_path('resources/views/vendor/messenger'),
+            __DIR__.'/config/messenger.php' => config_path('messenger.php'),
+        ]);
 	}
 
 	/**
@@ -33,7 +38,7 @@ class MessengerServiceProvider extends ServiceProvider {
         });
 
         $this->mergeConfigFrom(
-            __DIR__ . '/config/config.php', 'messenger'
+            __DIR__ . '/config/messenger.php', 'messenger'
         );
 	}
 
