@@ -73,7 +73,8 @@ class MessengerTest extends TestCase
 
     public function testConfigLoad()
     {
-        $this->assertEquals('success', \Config::get('messenger::success-class'));
+        \Config::set('messenger.success-class', 'success');
+        $this->assertEquals('success', \Config::get('messenger.success-class'));
     }
 
     public function testSuccessAlias()
@@ -118,7 +119,7 @@ class MessengerTest extends TestCase
 
     public function testWrapper()
     {
-        Config::set('messenger::wrapper', '<div>:message:</div>');
+        Config::set('messenger.wrapper', '<div>:message:</div>');
 
         $this->messenger->success('Hello wrapper');
         $messages = $this->messenger->get();
@@ -129,9 +130,11 @@ class MessengerTest extends TestCase
 
     public function testWrapperClass()
     {
-        Config::set('messenger::wrapper', '<p class=":status-class:">:message:</p>');
+        Config::set('messenger.wrapper', '<p class=":status-class:">:message:</p>');
+        Config::set('messenger.error-class', 'danger');
 
         $this->messenger->error('Hello wrapper and status-class');
+
         $messages = $this->messenger->get();
         $first = current($messages);
 
